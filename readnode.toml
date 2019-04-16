@@ -1,0 +1,27 @@
+# config for a read only node
+[parity]
+chain = "spec.json"
+base_path = "readnode"
+[network]
+port = 30300
+reserved_peers = "./bootnodes.txt"
+[rpc]
+port = 8540
+apis = ["web3", "eth", "net", "rpc"]
+cors = ["all"]
+interface = "all"
+hosts = ["all"]
+processing_threads = 8
+server_threads = 8
+[websockets]
+port = 8450
+apis = ["web3", "eth", "net", "rpc", "pubsub"] # need to have `pubsub` to avoid web3 errors on subscription to transaction receipts
+hosts = ["all"]
+origins = ["all"]
+interface = "all"
+[misc]
+log_file = "./qiibee.log"
+color = true
+[footprint]
+# If defined will never use more than this for all caches. (Overrides other cache settings).
+cache_size = 16384
